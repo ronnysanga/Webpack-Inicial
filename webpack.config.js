@@ -1,4 +1,5 @@
-const HtmlWebpack = require("html-webpack-plugin")
+const HtmlWebpack = require("html-webpack-plugin");
+const { loader } = require("mini-css-extract-plugin");
 const MiniCssExtract = require("mini-css-extract-plugin");
 
 module.exports = {
@@ -26,6 +27,10 @@ module.exports = {
             {
                 test: /styles.css$/,
                 use: [MiniCssExtract.loader,"css-loader"]
+            }, 
+            {
+                test: /\.(png|jpe?g|git)$/,
+                loader: "file-loader"
             }
         ]
     },
